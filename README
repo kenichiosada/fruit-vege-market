@@ -52,9 +52,3 @@ cpan.txt
 
 Adding module names to cpan.txt causes your remote OpenShift node to download
 the required modules and install them.
-
-
-Additional information
-======================
-
-Link to additional information will be here, when we have it :)
