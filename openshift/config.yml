@@ -7,7 +7,7 @@ appname: "openshift"
 
 # The default layout to use for your application (located in
 # views/layouts/main.tt)
-layout: "main"
+#layout: "main"
 
 # when the charset is set to UTF-8 Dancer will handle for you
 # all the magic of encoding and decoding. You should not care
@@ -17,13 +17,18 @@ charset: "UTF-8"
 # template engine
 # simple: default and very basic template engine
 # template_toolkit: TT
+template: "template_toolkit"
 
-template: "simple"
+engines:
+  template_toolkit:
+    start_tag: '[%'
+    end_tag:   '%]'
 
-# template: "template_toolkit"
-# engines:
-#   template_toolkit:
-#     encoding:  'utf8'
-#     start_tag: '[%'
-#     end_tag:   '%]'
-
+#template: "xslate"
+#engines:
+#  xslate:
+#    cache_dir: /data/www/tokyo2/cache/xslate
+#    cache: 1
+#    extension: html
+#    module:
+#      - Text::Xslate::Bridge::TT2Like 

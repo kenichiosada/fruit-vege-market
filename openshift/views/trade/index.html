@@ -1,0 +1,74 @@
+[% USE date %]
+
+[% MACRO comma(str) BLOCK;
+   str.replace('(?<=\d)(?=(?:\d\d\d)+(?:\z|\.))',",");
+END %]
+
+<h2>品名別販売結果 - [% crop.0.crop_name %]</h2>
+
+<table id="summary">
+
+  <tr>
+  <th>販売日</td> 
+  <th>販売方法</td> 
+  <th>卸売り数量</td> 
+  <th>品種</td> 
+  <th>産地</td> 
+  <th>単位（kg）</td> 
+  <th>高値（円）</td> 
+  <th>中値（円）</td> 
+  <th>安値（円）</td> 
+  </tr>
+
+  [% FOREACH data IN trades %]
+  <tr>
+  <td>[% date.format( data.trade_date, '%Y/%m/%d' ) %]</td>
+  <td>[% data.trade_method %]</td>
+  <td>[% comma(data.subtotal) %]</td>
+  <td>[% data.trade_details.breed %]</td>
+  <td>[% data.market %]</td>
+  <td>[% data.trade_details.trade_unit %]</td>
+  <td>[% comma(data.trade_details.high_price) %]</td>
+  <td>[% comma(data.trade_details.mid_price) %]</td>
+  <td>[% comma(data.trade_details.low_price) %]</td>
+  </tr>
+  [% END %] 
+
+</table>
+
+<script>
+$(document).ready(function() {
+
+  $('#summary th').css('border-bottom', '2px solid #999');
+
+  var first = {};
+  $('#summary td').each(function() {
+    var $this = $(this);
+    var index = $this.index();
+    var txt = $this.text(); 
+
+    if ( index < 4 && txt ) {
+      if ( first[index] == null ) {
+        first[index] = $this;
+      } else if ( first[index].text() === txt ) {
+        if ( first[index].attr('rowspan') == null ) {
+          var rowspan = 1;
+        } else {
+          var rowspan = first[index].attr('rowspan');
+        }
+        rowspan = parseInt(rowspan) + 1;
+        first[index].attr('rowspan', rowspan);
+        $this.hide();
+      } else {
+        first[index] = $this;
+        if ( index == 0 ) {
+          for ( var i = 1; i < 4; i++ ) {
+            first[i] = null;
+            $($this.parent().children()).css('border-top', '2px solid #999');
+          }
+        }
+      }
+    }
+  });
+});
+</script>

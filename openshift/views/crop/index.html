@@ -1,0 +1,8 @@
+<h2>品名別販売結果</h2>
+
+<ul>
+[% FOREACH crop IN crops %]
+  <li><a href="/trade?crop_id=[% crop.crop_id %]">[% crop.crop_name %]</a></li>
+[% END %]
+</ul>
+

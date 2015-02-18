@@ -1,17 +1,27 @@
 # configuration file for production environment
 
-# only log warning and error messsages
-log: "warning"
+# Logs
+log: "core"
 
-# log message to a file in logs/
 logger: "file"
+log_file: "error_log"
+log_path: "<%=ENV['OPENSHIFT_LOG_DIR']%>"
 
-# don't consider warnings critical
-warnings: 0
-
-# hide errors 
-show_errors: 0
+warnings: 1 
+traces: 1
+show_errors: 1 
 
 # cache route resolution for maximum performance
 route_cache: 1
+
+# Plugins
+plugins:
+  DBIC:
+    default:
+      dsn: dbi:mysql:dbname=market;host=<%=ENV['OPENSHIFT_MYSQL_DB_HOST']%>:<%=ENV['OPENSHIFT_MYSQL_DB_PORT']%>
+      schema_class: DB::Schema
+      user: <%=ENV['OPENSHIFT_MYSQL_DB_USERNAME']%> 
+      password: <%=ENV['OPENSHIFT_MYSQL_DB_PASSWORD']%> 
+      options:
+        mysql_enable_utf8: 1
 

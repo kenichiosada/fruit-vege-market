@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>東京都中央卸売り市場日報まとめ</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+
+<body>
+<h1>東京都中央卸売り市場日報まとめ</h1>
+[% TRY %]
+  [% INCLUDE "$location/$section/index.html" %]
+[% CATCH %]
+  [% TRY %]
+      [% INCLUDE "$location/index.html" %]
+  [% CATCH %]
+      [% PROCESS default_content %]
+  [% END %]
+[% END %]
+</body>
+</html>
+
+[% BLOCK default_content %]
+<ul>
+  <li><a href="/crop">品名別販売結果</a></li>
+</ul>
+[% END %]
