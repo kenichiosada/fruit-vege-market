@@ -1,12 +1,13 @@
 Test::Base
 YAML
 Plack::Handler::Apache2
-Dancer
-Dancer::Plugin
-Dancer::Plugin::DBIC
+Encode
+Template
 Moose
 Moose::MarkAsMethods
 Moose::NonMoose
-Encode
+Dancer
+Dancer::Plugin
+Dancer::Plugin::DBIC
 
 
