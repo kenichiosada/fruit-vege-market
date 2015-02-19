@@ -21,12 +21,10 @@ if ( !$ENV{'OPENSHIFT_APP_NAME'} ) {
     $ENV{'OPENSHIFT_MYSQL_DB_HOST'} = $DB_CONFIG->{HOST};
     $ENV{'OPENSHIFT_MYSQL_DB_USERNAME'} = $DB_CONFIG->{USERNAME};
     $ENV{'OPENSHIFT_MYSQL_DB_PASSWORD'} = $DB_CONFIG->{PASSWORD};
-    $ENV{'OPENSHIFT_APP_NAME'} = $DB_CONFIG->{DB_NAME};
 };
 
 # Connect to database
-#my $dsn = 'dbi:mysql:dbname=' . $ENV{'OPENSHIFT_APP_NAME'} . ';host=' . $ENV{'OPENSHIFT_MYSQL_DB_HOST'};
-my $dsn = 'dbi:mysql:dbname=test;host=' . $ENV{'OPENSHIFT_MYSQL_DB_HOST'};
+my $dsn = 'dbi:mysql:dbname=' . $DB_CONFIG->{DB_NAME} . ';host=' . $ENV{'OPENSHIFT_MYSQL_DB_HOST'};
 $dsn .= ':' . $ENV{'OPENSHIFT_MYSQL_DB_PORT'} if $ENV{'OPENSHIFT_MYSQL_DB_PORT'}; 
 $dsn .= ';';
 my $schema = DB::Schema->connect($dsn, $ENV{'OPENSHIFT_MYSQL_DB_USERNAME'}, $ENV{'OPENSHIFT_MYSQL_DB_PASSWORD'}, { mysql_enable_utf8 => 1 }) or die 'Could not connect';
