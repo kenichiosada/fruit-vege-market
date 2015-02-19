@@ -9,6 +9,7 @@ use Myapp::Crop;
 use Myapp::Trade;
 
 use DB::Schema;
+use Conf::Settings qw( $DB_CONFIG );
 
 our $VERSION = '0.1';
 
@@ -28,6 +29,9 @@ hook 'before' => sub {
   # set config
   if ( $ENV{'OPENSHIFT_APP_NAME'} ) {
     config->{log_path} = "$ENV{'OPENSHIFT_LOG_DIR'}"; 
+    config->{plugins}->{DBIC}->{default}->{dsn} = "dbi:mysql:dbname=$DB_CONFIG{'DB_NAME'};host=$ENV{'OPENSHIFT_MYSQL_DB_HOST'}:$ENV{'OPENSHIFT_MYSQL_DB_PORT'}";
+    config->{plugins}->{DBIC}->{default}->{user} = "$ENV{'OPENSHIFT_MYSQL_DB_USERNAME'}";
+    config->{plugins}->{DBIC}->{default}->{password} = "$ENV{'OPENSHIFT_MYSQL_DB_PASSWORD'}";
   }
 };
 

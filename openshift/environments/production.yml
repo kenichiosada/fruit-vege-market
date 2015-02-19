@@ -18,10 +18,7 @@ route_cache: 1
 plugins:
   DBIC:
     default:
-      dsn: dbi:mysql:dbname=market;host=<%=ENV['OPENSHIFT_MYSQL_DB_HOST']%>:<%=ENV['OPENSHIFT_MYSQL_DB_PORT']%>
       schema_class: DB::Schema
-      user: <%=ENV['OPENSHIFT_MYSQL_DB_USERNAME']%> 
-      password: <%=ENV['OPENSHIFT_MYSQL_DB_PASSWORD']%> 
       options:
         mysql_enable_utf8: 1
 
