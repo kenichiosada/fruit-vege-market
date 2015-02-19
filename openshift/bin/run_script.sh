@@ -3,20 +3,20 @@
 # Set env variables
 if [ -z "$OPENSHIFT_APP_NAME" ]; then
   # dev
-  export APP_HOME="/data/www/tokyo/"
-  LIB_DIR=${APP_HOME}myapp/lib/
+  export APP_HOME="/data/www/tokyo2/"
+  LIB_DIR=${APP_HOME}openshift/lib/
   if [ -z "$PERL5LIB" ]; then
     export PERL5LIB="$LIB_DIR"
   else 
     export PERL5LIB="$LIB_DIR:$PERL5LIB"
   fi
   export OPENSHIFT_TMP_DIR="/tmp"
-  export OPENSHIFT_LOG_DIR=${APP_HOME}myapp/log/
+  export OPENSHIFT_LOG_DIR=${APP_HOME}openshift/log/
 else 
   # prod
   export APP_HOME="$OPENSHIFT_APPHOME"
   OPENSHIFT_REPO_DIR=${OPENSHIFT_REPO_DIR}
-  export PERL5LIB="$OPENSHIFT_REPO_DIR:$PERL5LIB"
+  export PERL5LIB=${OPENSHIFT_REPO_DIR}openshift/:$PERL5LIB
 fi
 
 function usage {
