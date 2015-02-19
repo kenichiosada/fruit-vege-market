@@ -12,7 +12,7 @@ BEGIN {
 
 use base qw( Exporter );
 
-require "$ENV{'APP_HOME'}lib/Conf/$ENV{'APP_SETTING'}.conf";
+require "$ENV{'APP_HOME'}openshift/lib/Conf/$ENV{'APP_SETTING'}.conf";
 
 @EXPORT_OK = qw( 
                  $DEBUG
