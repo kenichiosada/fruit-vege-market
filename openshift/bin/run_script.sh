@@ -16,7 +16,7 @@ else
   # prod
   export APP_HOME="$OPENSHIFT_APPHOME"
   OPENSHIFT_REPO_DIR=${OPENSHIFT_REPO_DIR}
-  export PERL5LIB=${OPENSHIFT_REPO_DIR}openshift/:$PERL5LIB
+  export PERL5LIB=${OPENSHIFT_REPO_DIR}openshift/lib/:$PERL5LIB
 fi
 
 function usage {
