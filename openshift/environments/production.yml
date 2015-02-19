@@ -5,7 +5,7 @@ log: "core"
 
 logger: "file"
 log_file: "error_log"
-log_path: "<%=ENV['OPENSHIFT_LOG_DIR']%>"
+log_path: ""
 
 warnings: 1 
 traces: 1
