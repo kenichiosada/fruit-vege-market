@@ -24,11 +24,3 @@ engines:
     start_tag: '[%'
     end_tag:   '%]'
 
-#template: "xslate"
-#engines:
-#  xslate:
-#    cache_dir: /data/www/tokyo2/cache/xslate
-#    cache: 1
-#    extension: html
-#    module:
-#      - Text::Xslate::Bridge::TT2Like 

@@ -4,8 +4,8 @@ Plack::Handler::Apache2
 Encode
 Template
 Moose
-Moose::MarkAsMethods
-Moose::NonMoose
+MooseX::MarkAsMethods
+MooseX::NonMoose
 Dancer
 Dancer::Plugin
 Dancer::Plugin::DBIC
