@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ${OPENSHIFT_REPO_DIR}openshift/lib/bin/
+sh run_script.sh load.pl -cron
