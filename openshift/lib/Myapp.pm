@@ -19,6 +19,10 @@ hook 'before' => sub {
   my $page = {};
   var 'page' => $page;  
 
+use Data::Dumper;
+debug Dumper request;
+debug Dumper request->{request_uri};
+
   # parse request URI
   my @uri = split('/', request->{request_uri});
   $page->{location}   = $uri[1];
