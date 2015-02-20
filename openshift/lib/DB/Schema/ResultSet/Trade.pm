@@ -29,6 +29,7 @@ sub select_by_crop_id {
                     { -asc  => 'breed' },
                     { -desc => 'market' },
                   ],
+      rows     => 30,
 			result_class => 'DBIx::Class::ResultClass::HashRefInflator',
     }
   );
