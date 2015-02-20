@@ -1,8 +1,8 @@
 [% USE date %]
 
-[% MACRO comma(str) BLOCK;
+[% MACRO comma(str) BLOCK %]
    str.replace('(?<=\d)(?=(?:\d\d\d)+(?:\z|\.))',",");
-END %]
+[% END %]
 
 <h2>品名別販売結果 - [% crop.0.crop_name %]</h2>
 
@@ -21,7 +21,6 @@ END %]
   </tr>
 
   [% FOREACH data IN trades %]
-[% date.format( data.trade_date, '%Y/%m/%d' ) %]
   <tr>
   <td>[% date.format( data.trade_date, '%Y/%m/%d' ) %]</td>
   <td>[% data.trade_method %]</td>
