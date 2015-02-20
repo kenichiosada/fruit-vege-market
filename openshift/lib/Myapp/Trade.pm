@@ -10,6 +10,8 @@ use Plugin::Template;
 
 use Encode qw( encode decode );
 
+use Data::Dumper;
+
 prefix '/trade';
 
 get '/' => sub {
@@ -25,6 +27,8 @@ get '/' => sub {
   $crop_rs->{crop_id} = $crop_id;
 
   $page->{crop} = $crop_rs->select_by_crop_id();
+
+debug Dumper $page->{crop};
 
   goTemplate;
 };
