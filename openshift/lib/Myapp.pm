@@ -26,10 +26,6 @@ hook 'before' => sub {
   $page->{subSection} = $uri[3];
   $page->{navSection} = $uri[4];
 
-$page->{uri} = request->{request_uri};
-$page->{path} = request->{path};
-$page->{request} = request;
-
   # set config
   if ( $ENV{'OPENSHIFT_APP_NAME'} ) {
     config->{log_path} = "$ENV{'OPENSHIFT_LOG_DIR'}"; 
