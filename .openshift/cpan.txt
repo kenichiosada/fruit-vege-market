@@ -9,5 +9,10 @@ MooseX::NonMoose
 Dancer
 Dancer::Plugin
 Dancer::Plugin::DBIC
-
+DBIx::Class::ResultClass::HashRefInflator
+Data::Dumper
+Date::Time
+LWP::Simple
+Plack::Runner
+Text::CSV_XS
 
