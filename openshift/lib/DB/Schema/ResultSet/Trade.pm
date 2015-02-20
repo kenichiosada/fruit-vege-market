@@ -16,7 +16,7 @@ has 'crop_id' => (
 sub select_by_crop_id {
   my $self    = shift;
 
-  my $interval = "> now() - interval '30 days'";
+  my $interval = "> now() - interval '5 days'";
  
   my @rs = $self->search(
     { 
