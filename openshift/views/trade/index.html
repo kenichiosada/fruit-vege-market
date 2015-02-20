@@ -1,5 +1,3 @@
-[% USE date %]
-
 [% MACRO comma(str) BLOCK %]
    str.replace('(?<=\d)(?=(?:\d\d\d)+(?:\z|\.))',",");
 [% END %]
@@ -22,15 +20,15 @@
 
   [% FOREACH data IN trades %]
   <tr>
-  <td>[% date.format( data.trade_date, '%Y/%m/%d' ) %]</td>
+  <td>[% data.trade_date %]</td>
   <td>[% data.trade_method %]</td>
   <td>[% comma(data.subtotal) %]</td>
-  <td>[% data.trade_details.breed %]</td>
+  <td>[% data.trade_details.0.breed %]</td>
   <td>[% data.market %]</td>
-  <td>[% data.trade_details.trade_unit %]</td>
-  <td>[% comma(data.trade_details.high_price) %]</td>
-  <td>[% comma(data.trade_details.mid_price) %]</td>
-  <td>[% comma(data.trade_details.low_price) %]</td>
+  <td>[% data.trade_details.0.trade_unit %]</td>
+  <td>[% comma(data.trade_details.0.high_price) %]</td>
+  <td>[% comma(data.trade_details.0.mid_price) %]</td>
+  <td>[% comma(data.trade_details.0.low_price) %]</td>
   </tr>
   [% END %] 
 
