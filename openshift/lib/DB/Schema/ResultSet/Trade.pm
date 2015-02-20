@@ -6,6 +6,8 @@ use MooseX::NonMoose;
 
 extends 'DBIx::Class::ResultSet';
 
+use DBIx::Class::ResultClass::HashRefInflator;
+
 has 'crop_id' => (
   is  => 'rw',
   isa => 'Int',
@@ -27,6 +29,7 @@ sub select_by_crop_id {
                     { -asc  => 'breed' },
                     { -desc => 'market' },
                   ],
+			result_class => 'DBIx::Class::ResultClass::HashRefInflator',
     }
   );
 
