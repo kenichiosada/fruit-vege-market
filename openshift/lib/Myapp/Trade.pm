@@ -23,6 +23,8 @@ get '/' => sub {
 
   $page->{trades} = $trade_rs->select_by_crop_id();
 
+debug Dumper $page->{trades};
+
   my $crop_rs = resultset('Crop');
   $crop_rs->{crop_id} = $crop_id;
 
