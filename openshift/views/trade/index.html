@@ -9,18 +9,20 @@ END %]
 <table id="summary">
 
   <tr>
-  <th>販売日</td> 
-  <th>販売方法</td> 
-  <th>卸売り数量</td> 
-  <th>品種</td> 
-  <th>産地</td> 
-  <th>単位（kg）</td> 
-  <th>高値（円）</td> 
-  <th>中値（円）</td> 
-  <th>安値（円）</td> 
+  <th>販売日</th> 
+  <th>販売方法</th> 
+  <th>卸売り数量</th> 
+  <th>品種</th> 
+  <th>産地</th> 
+  <th>単位（kg）</th> 
+  <th>高値（円）</th> 
+  <th>中値（円）</th> 
+  <th>安値（円）</th> 
   </tr>
 
   [% FOREACH data IN trades %]
+[% data.trade_date %]
+[% data.trade_method %]
   <tr>
   <td>[% date.format( data.trade_date, '%Y/%m/%d' ) %]</td>
   <td>[% data.trade_method %]</td>
