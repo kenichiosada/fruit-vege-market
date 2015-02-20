@@ -21,8 +21,7 @@ END %]
   </tr>
 
   [% FOREACH data IN trades %]
-[% data.trade_date %]
-[% data.trade_method %]
+[% date.format( data.trade_date, '%Y/%m/%d' ) %]
   <tr>
   <td>[% date.format( data.trade_date, '%Y/%m/%d' ) %]</td>
   <td>[% data.trade_method %]</td>
