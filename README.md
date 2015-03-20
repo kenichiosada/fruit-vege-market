@@ -1,31 +1,20 @@
-Dancer on OpenShift
-===================
+Demo application deployed on [OpenShift](http://www.openshift.com/) SaaS. 
 
-This git repository helps you get up and running quickly w/ a Dancer installation
-on OpenShift.  The Dancer project name used in this repo is 'openshift'
-but you can feel free to change it.
+[Daily Wholesale Price of Fruits and Vegetables](http://tokyo2-fruitvegemarket.rhcloud.com/) (Japanese)
 
+It shows daily wholesale prices of fruits and vegetables at Ohta Market, a part of Tokyo Metropolitan Central Wholesale Market. 
+Unlike the original price summary page, which only allows user to see whole prices of each day, my summary page shows shift in price of each crop. 
 
-Running on OpenShift
-----------------------------
+e.g. Wholesale price of crops on 2015/03/19 ([Link](http://www.shijou-nippo.metro.tokyo.jp/SN/201503/20150319/Sei/SN_Sei_Oota.html))
 
-Create an account at https://www.openshift.com
+The application is written in Perl and built with [Dancer](http://www.perldancer.org/), a light weight application framework. 
+It is a PSGI(Plack) application running on Apache2. 
 
-Create a perl application
+Perl 5.10 / MySQL 5.5
 
-    rhc app create dancer perl-5.10
-
-Add this upstream dancer repo
-
-    cd dancer
-    git remote add upstream -m master git://github.com/openshift-quickstart/dancer-example.git
-    git pull -s recursive -X theirs upstream master
-    
-Then push the repo upstream
-
-    git push
-
-That's it, you can now checkout your application at:
-
-    http://dancer-$yournamespace.rhcloud.com
-
+I use modules like:
+* Moose
+* DBIx::Class
+* Template::Toolkit
+* Test::More
+* Plack::Test
